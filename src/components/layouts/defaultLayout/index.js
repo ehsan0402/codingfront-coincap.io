@@ -1,15 +1,19 @@
+import Style from "../defaultLayout/wrapper/style"
+import Footer from "components/footer";
+import Header from "components/header";
 import { Fragment } from "react";
-import Footer from "../../footer";
-import Header from "../../header";
 
 export function DefaultLayout(props){
     const {children} = props;
     return(
         <Fragment>
             <Header/>
-                {children}
+                <Style>
+                        {children}
+                </Style>
             <Footer/>
         </Fragment>
+        
     )
 }
 export default DefaultLayout;
