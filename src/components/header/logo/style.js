@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
-const Style = styled.div `
+export const Style = styled.div `
     img {
-        width: 85px;
+        display: block;
+        width: 80px;
         height: auto;
+        padding-top: 15px;
     }
 `;
 export default Style;

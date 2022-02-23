@@ -3,14 +3,17 @@ import HeaderTools from "./headerTools";
 import Logo from "./logo";
 import Menu from "./menu";
 import Style from "./style";
+import { Row , Col }  from "antd";
 
 export function Header(){
     return(
-        <Style>
-            <Menu/>
-            <Logo/>
-            <HeaderTools/>
-        </Style>
+        <Fragment>
+            <Row justify="space-between">
+                <Col><Menu/></Col>
+                <Col><Logo/></Col>
+                <Col><HeaderTools/></Col>
+            </Row>
+        </Fragment>
     )
 }
 export default Header;

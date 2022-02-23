@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Style = styled.div `
-    max-width: 90%;
+    max-width: 60%;
     margin: 0 auto;
 `;
 export default Style;

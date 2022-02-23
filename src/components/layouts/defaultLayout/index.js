@@ -7,9 +7,9 @@ export function DefaultLayout(props){
     const {children} = props;
     return(
         <Fragment>
-            <Header/>
                 <Style>
-                        {children}
+                <Header/>
+                            {children}
                 </Style>
             <Footer/>
         </Fragment>
