@@ -5,9 +5,20 @@ export const Style = styled.div `
         padding-left: 0;
         li{
             a{
-                color:black;
+                color:white;
+                opacity: 0.5;
+                &:hover {
+                    color: white;
+                    opacity: unset;
+                }
             }
         }
+    }
+    p{
+        font-size: 1.2rem;
+        padding : 0;
+        color : white;
+        margin-top: 5px;
     }
 `;
 export default Style;

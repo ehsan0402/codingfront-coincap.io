@@ -1,13 +1,8 @@
 import styled from "styled-components";
 
 export const Style = styled.div `
-        padding: 15px 0;
-        margin-top: 20px;
+        height: 219px;
+        margin-top: 70px;
         background-image: linear-gradient(to right, rgb(63, 81, 181), rgb(100, 181, 246));
-        border: none !important;
-        .ant-col {
-                width: 25%;
-                padding: 14px 14px;
-            }
 `;
 export default Style;

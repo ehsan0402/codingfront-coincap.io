@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 
 export const Style = styled.div `
-    Table{
-        
+    .ant-spin{
+        font-size: 1.4rem;
+        margin-top: 10px;
     }
     Button{
         display: block;

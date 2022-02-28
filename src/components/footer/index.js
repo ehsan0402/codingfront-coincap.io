@@ -10,12 +10,12 @@ export function Footer(){
     return(
         <Style>
             <StyleW>
-            <Row justify="space-between">
-                <Col><LinkList/></Col>
-                <Col><Legals/></Col>
-                <Col><Follow/></Col> 
-                <Col><AppCoin/></Col>            
-            </Row>
+                <Row justify="space-between">
+                    <Col><LinkList/></Col>
+                    <Col><Legals/></Col>
+                    <Col><Follow/></Col> 
+                    <Col><AppCoin/></Col>            
+                </Row>
             </StyleW>
         </Style>
     )

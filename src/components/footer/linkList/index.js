@@ -5,8 +5,8 @@ import Style from "./style";
 export function LinkList(){
     return(
         <Style>
+            <p>COINCAP.IO</p>
             <ul>
-                <li>COINCAP.IO</li>
                 <li><Link to="/">Methodology</Link></li>
                 <li><Link to="/">Support</Link></li>
                 <li><Link to="/">Our API</Link></li>

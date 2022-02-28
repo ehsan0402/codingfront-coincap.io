@@ -2,10 +2,9 @@ import { useEffect, useState } from "react";
 import DefaultLayout from "components/layouts/defaultLayout";
 import api from "utils/api";
 import { Link } from "react-router-dom";
-import { Button } from "antd";
+import { Button, Spin } from "antd";
 import { Table } from "antd";
 import Style from "./style";
-import { Pagination } from 'antd';
 
 export function Home(){
     const [loading, setLoading] = useState(false);
@@ -87,9 +86,9 @@ export function Home(){
     return(
         <DefaultLayout>
             <Style>
-            <div style={{display: loading ? "block" : "none"}}>Loading...</div>
-            <Table columns={columnsObject} dataSource={assets} pagination={true} />
-            <Button onClick={loadMore}>View More</Button>
+                <Spin size="large" tip="Loading..." style={{display: loading ? "block" : "none"}}/>
+                <Table columns={columnsObject} dataSource={assets} pagination={true} />
+                <Button onClick={loadMore}>View More</Button>
             </Style>
         </DefaultLayout>
     );
