@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { Pagination } from 'antd';
+
 
 export const Style = styled.div `
     Table{
-        Pagination:none;
+        
     }
     Button{
         display: block;

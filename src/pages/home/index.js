@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Button } from "antd";
 import { Table } from "antd";
 import Style from "./style";
+import { Pagination } from 'antd';
 
 export function Home(){
     const [loading, setLoading] = useState(false);
@@ -21,36 +22,43 @@ export function Home(){
             title:"Name",
             dataIndex:"id",
             key:"id",
+            render:text=> <Link to={`/crypto/${text}`}>{text}</Link>
         },
         {
             title:"Price",
             dataIndex:"priceUsd",
             key:"priceUsd",
+            render:text=> <p>{Math.round(text)}</p>
         },
         {
             title:"MarketCap",
             dataIndex:"marketCapUsd",
             key:"marketCapUsd",
+            render:text=> <p>{Math.round(text)}</p>
         },
         {
             title:"VWAP (24Hr)",
             dataIndex:"vwap24Hr",
             key:"vwap24Hr",
+            render:text=> <p>{Math.round(text)}</p>
         },
         {
             title:"Supply",
             dataIndex:"supply",
             key:"supply",
+            render:text=> <p>{Math.round(text)}</p>
         },
         {
             title:"Volume (24Hr)",
             dataIndex:"volumeUsd24Hr",
             key:"volumeUsd24Hr",
+            render:text=> <p>{Math.round(text)}</p>
         },
         {
             title:"Volume (24Hr)",
             dataIndex:"changePercent24Hr",
             key:"changePercent24Hr",
+            render:text=> <p>{Math.round(text)}</p>
         },
     ]
     
@@ -80,7 +88,7 @@ export function Home(){
         <DefaultLayout>
             <Style>
             <div style={{display: loading ? "block" : "none"}}>Loading...</div>
-            <Table columns={columnsObject} dataSource={assets}  />
+            <Table columns={columnsObject} dataSource={assets} pagination={true} />
             <Button onClick={loadMore}>View More</Button>
             </Style>
         </DefaultLayout>

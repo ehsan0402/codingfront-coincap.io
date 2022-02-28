@@ -1,4 +1,4 @@
-import Style from "../defaultLayout/wrapper/style"
+import StyleW from "../defaultLayout/wrapper/style"
 import Footer from "components/footer";
 import Header from "components/header";
 import { Fragment } from "react";
@@ -7,10 +7,10 @@ export function DefaultLayout(props){
     const {children} = props;
     return(
         <Fragment>
-                <Style>
+                <StyleW>
                 <Header/>
-                            {children}
-                </Style>
+                    {children}
+                </StyleW>
             <Footer/>
         </Fragment>
         
