@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import DefaultLayout from "components/layouts/defaultLayout";
 import api from "utils/api";
 import { Link } from "react-router-dom";
-import { Button, Spin } from "antd";
-import { Table , Space } from "antd";
+import { Button , Space, Spin , Table } from "antd";
 import Style from "./style";
 
 export function Home(){
@@ -11,7 +10,7 @@ export function Home(){
     const [assets, setAssets] = useState([]);
     const [limit , setLimit] = useState(10);
     const [offset , setOffset] = useState(0);
-   
+      
     const columnsObject = [
         {
             title: 'Rank',
@@ -88,8 +87,8 @@ export function Home(){
         <DefaultLayout>
             <Style>
                 <Spin size="large" tip="Loading..." style={{display: loading ? "block" : "none"}}/>
-                <Table columns={columnsObject} dataSource={assets} pagination={false} />
-                <Button onClick={loadMore}>View More</Button>
+                <Table columns={columnsObject} dataSource={assets} pagination={false} style={{display: loading ? "none" : "block"}} />
+                <Button onClick={loadMore} style={{display: loading ? "none" : "block"}}>View More</Button>          
             </Style>
         </DefaultLayout>
     );
