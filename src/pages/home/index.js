@@ -3,7 +3,7 @@ import DefaultLayout from "components/layouts/defaultLayout";
 import api from "utils/api";
 import { Link } from "react-router-dom";
 import { Button, Spin } from "antd";
-import { Table } from "antd";
+import { Table , Space } from "antd";
 import Style from "./style";
 
 export function Home(){
@@ -11,53 +11,54 @@ export function Home(){
     const [assets, setAssets] = useState([]);
     const [limit , setLimit] = useState(10);
     const [offset , setOffset] = useState(0);
+   
     const columnsObject = [
         {
-            title:"Rank",
-            dataIndex:"rank",
-            key:"rank",
+            title: 'Rank',
+            dataIndex: 'rank' ,
+            key: 'rank',
         },
         {
-            title:"Name",
-            dataIndex:"id",
-            key:"id",
-            render:text=> <Link to={`/crypto/${text}`}>{text}</Link>
+            title: 'Name',
+            dataIndex: 'id',
+            key: 'id',
+            render: text => <Link to={`/crypto/${text}`}>{text}</Link>,
         },
         {
-            title:"Price",
-            dataIndex:"priceUsd",
-            key:"priceUsd",
-            render:text=> <p>{Math.round(text)}</p>
+            title: 'Price',
+            dataIndex: 'priceUsd',
+            key: 'priceUsd',
+            render: text => <p>$ {Math.round(text)}</p>,
         },
         {
-            title:"MarketCap",
-            dataIndex:"marketCapUsd",
-            key:"marketCapUsd",
-            render:text=> <p>{Math.round(text)}</p>
+            title: 'Marcket Cap',
+            dataIndex: 'marketCapUsd',
+            key: 'marketCapUsd',
+            render: text => <p>$ {Math.round(text)}</p>,
         },
         {
-            title:"VWAP (24Hr)",
-            dataIndex:"vwap24Hr",
-            key:"vwap24Hr",
-            render:text=> <p>{Math.round(text)}</p>
+            title: 'VWAP(24Hr)',
+            dataIndex: 'vwap24Hr',
+            key: 'vwap24Hr',
+            render: text => <p>$ {Math.round(text)}</p>,
         },
         {
-            title:"Supply",
-            dataIndex:"supply",
-            key:"supply",
-            render:text=> <p>{Math.round(text)}</p>
+            title: 'Suplly',
+            dataIndex: 'supply',
+            key: 'supply',
+            render: text => <p>{Math.round(text)} m</p>,
         },
         {
-            title:"Volume (24Hr)",
-            dataIndex:"volumeUsd24Hr",
-            key:"volumeUsd24Hr",
-            render:text=> <p>{Math.round(text)}</p>
+            title: 'Volume(24Hr)',
+            dataIndex: 'volumeUsd24Hr',
+            key: 'volumeUsd24Hr',
+            render: text => <p>$ {Math.round(text)} b</p>,
         },
         {
-            title:"Volume (24Hr)",
-            dataIndex:"changePercent24Hr",
-            key:"changePercent24Hr",
-            render:text=> <p>{Math.round(text)}</p>
+            title: 'Change(24Hr)',
+            dataIndex: 'changePercent24Hr',
+            key: 'changePercent24Hr',
+            render: text => <p>{Math.round(text)} %</p>,
         },
     ]
     
@@ -87,7 +88,7 @@ export function Home(){
         <DefaultLayout>
             <Style>
                 <Spin size="large" tip="Loading..." style={{display: loading ? "block" : "none"}}/>
-                <Table columns={columnsObject} dataSource={assets} pagination={true} />
+                <Table columns={columnsObject} dataSource={assets} pagination={false} />
                 <Button onClick={loadMore}>View More</Button>
             </Style>
         </DefaultLayout>
