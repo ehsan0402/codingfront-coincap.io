@@ -10,6 +10,7 @@ const Style = styled.div `
         border-bottom: 1px solid;
         .ant-row {
                 height: 70px;
+                background: white;
             }
 `;
 export default Style;

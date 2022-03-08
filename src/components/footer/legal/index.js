@@ -8,8 +8,8 @@ export function Legals(){
         <Style>
             <p>LEGALS</p> 
             <ul>
-                <li><Link to="/">Terms of Service</Link></li>
-                <li><Link to="/">Privacy Policy</Link></li>
+                <li><Link to="//assets.coincap.io/documents/terms_of_service.pdf" target="_blank">Terms of Service</Link></li>
+                <li><Link to="//shapeshift.com/privacy?_ga=2.220280927.695211893.1646731752-630696419.1645293190" target="_blank">Privacy Policy</Link></li>
             </ul> 
             <p>DISCLAIMER</p>
             <span>

@@ -7,8 +7,14 @@ export const Style = styled.div `
         color : white;
         margin-top: 5px;
     }
-    img{
-        display:block;
+    a{
+        img{
+            display:block;
+            max-width: 160px;
+            height: auto;
+            margin-top: 5px;
+        }
+        
     }
 `;
 export default Style;

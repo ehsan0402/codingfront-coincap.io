@@ -7,8 +7,8 @@ export function Follow(){
     return(
         <Style>
             <p>FOLLOW US</p>
-            <Link to="https://twitter.com/CoinCap_io"><TwitterOutlined/></Link>
-            <Link to="https://www.facebook.com/coincapmarketdata/videos/365220420785166/"><FacebookFilled/></Link>
+            <Link to="//twitter.com/CoinCap_io" target="_blank"><TwitterOutlined/></Link>
+            <Link to="//facebook.com/coincapmarketdata/videos/365220420785166/" target="_blank"><FacebookFilled/></Link>
         </Style>
     )
 }
