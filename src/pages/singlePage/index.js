@@ -21,11 +21,11 @@ export function SinglePage(){
     
     return(
         <DefaultLayout>
-        <Descriptions title="Coin Info">
-            <Descriptions.Item label="Name">{item.id}</Descriptions.Item>
+        <Descriptions>
+            <Descriptions.Item label="">{item.id}</Descriptions.Item>
             <Descriptions.Item label="High">{item.maxSupply}</Descriptions.Item>
             <Descriptions.Item label="Average">{item.id}</Descriptions.Item>
-            <Descriptions.Item label="Low">{item.id}</Descriptions.Item>
+            <Descriptions.Item label="">{item.date}</Descriptions.Item>
             <Descriptions.Item label="Low">{item.id}</Descriptions.Item>
             <Descriptions.Item label="Change">{item.changePercent24Hr}</Descriptions.Item>
         </Descriptions>

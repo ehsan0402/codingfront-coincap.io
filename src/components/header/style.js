@@ -9,7 +9,7 @@ const Style = styled.div `
         height: 70px;
         border-bottom: 1px solid;
         .ant-row {
-                height: 70px;
+                height: 69px;
                 background: white;
             }
 `;

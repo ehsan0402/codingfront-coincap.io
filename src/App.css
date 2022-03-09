@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background: rgb(236, 239, 241);
 }
 * , *::after , *::before {
   box-sizing: border-box;

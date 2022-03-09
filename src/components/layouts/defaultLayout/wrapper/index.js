@@ -1,4 +1,4 @@
-import Style from "/wrapper/style"
+import Style from "./style"
 
 export function Wrapper(){
     return(

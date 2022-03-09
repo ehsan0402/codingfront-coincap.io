@@ -1,5 +1,4 @@
 import { BrowserRouter , Routes , Route } from "react-router-dom";
-import AppCoin from "./components/footer/appCoin";
 import Home from "./pages/home";
 import NotFound from "./pages/notFound";
 import SinglePage from "./pages/singlePage";

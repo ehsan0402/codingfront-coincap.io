@@ -1,15 +1,18 @@
-import { useEffect, useState } from "react";
+import { Children, Fragment, useEffect, useState } from "react";
 import DefaultLayout from "components/layouts/defaultLayout";
 import api from "utils/api";
 import { Link } from "react-router-dom";
-import { Button , Space, Spin , Table } from "antd";
+import { Button , Spin , Table , Row, Col  } from "antd";
 import Style from "./style";
+import StyleW from "../../components/layouts/defaultLayout/wrapper/style";
 
 export function Home(){
     const [loading, setLoading] = useState(false);
     const [assets, setAssets] = useState([]);
-    const [limit , setLimit] = useState(10);
+    const [limit , setLimit] = useState(20);
     const [offset , setOffset] = useState(0);
+    const imgSrc1 = "https://assets.coincap.io/assets/icons/";
+    const imgSrc2 = "@2x.png";
       
     const columnsObject = [
         {
@@ -19,21 +22,29 @@ export function Home(){
         },
         {
             title: 'Name',
-            dataIndex: 'id',
             key: 'id',
-            render: text => <Link to={`/crypto/${text}`}>{text}</Link>,
-        },
+            dataIndex: 'symbol',
+            render: 
+                function (text) {
+                    return (
+                        <Fragment>
+                        <img src={imgSrc1 + text.toLowerCase() + imgSrc2} />
+                        <div><Link to={`/crypto/${text}`}>{text}<p className="id">{text}</p></Link></div>
+                        </Fragment>
+                    )
+                },
+        }, 
         {
             title: 'Price',
             dataIndex: 'priceUsd',
             key: 'priceUsd',
-            render: text => <p>$ {Math.round(text)}</p>,
+            render: text => <p>$ {Math.round((text) * 100) / 100}</p>,
         },
         {
             title: 'Marcket Cap',
             dataIndex: 'marketCapUsd',
             key: 'marketCapUsd',
-            render: text => <p>$ {Math.round(text)}</p>,
+            render: text => <p>$ {Math.round(text)} b</p>,
         },
         {
             title: 'VWAP(24Hr)',
@@ -57,7 +68,7 @@ export function Home(){
             title: 'Change(24Hr)',
             dataIndex: 'changePercent24Hr',
             key: 'changePercent24Hr',
-            render: text => <p>{Math.round(text)} %</p>,
+            render: text => <p style={{color : text < 0 ? "red" : "rgb(24, 198, 131)"}}>{Math.round((text) * 100) / 100} %</p>,
         },
     ]
     
@@ -65,7 +76,7 @@ export function Home(){
         async function getApi(){
             try {
                 setLoading(true);
-                const response = await api.get('assets', {limit:limit , offset :offset});
+                const response = await api.get('assets', {limit: limit , offset: offset});
                 setAssets(response.data.data);
                 setLoading(false);
             }catch(e){
@@ -86,9 +97,43 @@ export function Home(){
     return(
         <DefaultLayout>
             <Style>
-                <Spin size="large" tip="Loading..." style={{display: loading ? "block" : "none"}}/>
-                <Table columns={columnsObject} dataSource={assets} pagination={false} style={{display: loading ? "none" : "block"}} />
-                <Button onClick={loadMore} style={{display: loading ? "none" : "block"}}>View More</Button>          
+                <div className="backBanner">
+                    <StyleW>
+                        <div className="backBannerOpt">
+                            <Row justify="space-between">
+                                <Col>
+                                    <Row justify="center"><div className="label">MARCKET CAP</div></Row>
+                                    <Row justify="center"><div className="value">$1.88T</div></Row>
+                                </Col>
+                                <Col>                                    
+                                    <Row justify="center" ><div className="label">EXCHANGE VOL</div></Row>
+                                    <Row justify="center" ><div className="value">$78.46B</div></Row>                                    
+                                </Col>
+                                <Col>                                    
+                                    <Row justify="center"><div className="label">ASSTES</div></Row>
+                                    <Row justify="center"><div className="value">2,295</div></Row>                                    
+                                </Col>
+                                <Col>
+                                    <Row justify="center"><div className="label">EXCHANGE</div></Row>
+                                    <Row justify="center"><div className="value">73</div></Row>                                    
+                                </Col>
+                                <Col>
+                                    <Row justify="center"><div className="label">MARCKETS</div></Row>
+                                    <Row justify="center"><div className="value">17,101</div></Row>                                    
+                                </Col>
+                                <Col>
+                                    <Row justify="center"><div className="label">BTC DOM INDEX</div></Row>
+                                    <Row justify="center"><div className="value">41.9%</div></Row>
+                                </Col>
+                            </Row>
+                        </div>
+                    </StyleW>
+                </div>
+                <StyleW>
+                    <Spin size="large" tip="Loading..." style={{display: loading ? "block" : "none"}}/>
+                    <Table columns={columnsObject} dataSource={assets} pagination={false} style={{display: loading ? "none" : "block"}} />
+                    <Button onClick={loadMore} style={{display: loading ? "none" : "block"}}>View More</Button>
+                </StyleW>       
             </Style>
         </DefaultLayout>
     );
