@@ -37,11 +37,40 @@ export const Style = styled.div `
             margin-top: -110px;
             left: 0;
             width: 100%;
-            .symbol{
-                display:inline;
+            tr{
+                height: 55px !important;
+                th{
+                    &:nth-child(3){
+                        text-align:right;
+                    }
+                    &:nth-child(4){
+                        text-align:right;
+                    }
+                    &:nth-child(5){
+                        text-align:right;
+                    }
+                    &:nth-child(6){
+                        text-align:right;
+                    }
+                    &:nth-child(7){
+                        text-align:right;
+                    }
+                    &:nth-child(8){
+                        text-align:right;
+                    }
+                }
             }
-            .id{
-                margin: 0 0 0 44px;
+            a{
+                color: black;
+            }
+            a:hover{
+                text-decoration: underline;
+            }
+            .rank{
+                text-align:center;
+            }
+            .right{
+                text-align:right;
             }
             img{
                 display: inline-block;

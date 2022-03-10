@@ -2,7 +2,7 @@ import { Children, Fragment, useEffect, useState } from "react";
 import DefaultLayout from "components/layouts/defaultLayout";
 import api from "utils/api";
 import { Link } from "react-router-dom";
-import { Button , Spin , Table , Row, Col  } from "antd";
+import { Button , Spin , Table , Row, Col, Space  } from "antd";
 import Style from "./style";
 import StyleW from "../../components/layouts/defaultLayout/wrapper/style";
 
@@ -19,18 +19,19 @@ export function Home(){
             title: 'Rank',
             dataIndex: 'rank' ,
             key: 'rank',
+            render: text => <p className="rank">{text}</p>,
         },
         {
             title: 'Name',
             key: 'id',
-            dataIndex: 'symbol',
+            dataIndex: 'id',
             render: 
-                function (text) {
+                function (text , record) {
                     return (
-                        <Fragment>
-                        <img src={imgSrc1 + text.toLowerCase() + imgSrc2} />
-                        <div><Link to={`/crypto/${text}`}>{text}<p className="id">{text}</p></Link></div>
-                        </Fragment>
+                        <Space>
+                        <img src={imgSrc1 + record.symbol.toLowerCase() + imgSrc2} />
+                        <Link to={`/crypto/${text}`}>{text}<div>{record.symbol}</div></Link>
+                        </Space>
                     )
                 },
         }, 
@@ -38,37 +39,37 @@ export function Home(){
             title: 'Price',
             dataIndex: 'priceUsd',
             key: 'priceUsd',
-            render: text => <p>$ {Math.round((text) * 100) / 100}</p>,
+            render: text => <p className="right">$ {Math.round((text) * 100) / 100}</p>,
         },
         {
             title: 'Marcket Cap',
             dataIndex: 'marketCapUsd',
             key: 'marketCapUsd',
-            render: text => <p>$ {Math.round(text)} b</p>,
+            render: text => <p className="right">$ {Math.round(text)} b</p>,
         },
         {
             title: 'VWAP(24Hr)',
             dataIndex: 'vwap24Hr',
             key: 'vwap24Hr',
-            render: text => <p>$ {Math.round(text)}</p>,
+            render: text => <p className="right">$ {Math.round(text)}</p>,
         },
         {
             title: 'Suplly',
             dataIndex: 'supply',
             key: 'supply',
-            render: text => <p>{Math.round(text)} m</p>,
+            render: text => <p className="right">{Math.round(text)} m</p>,
         },
         {
             title: 'Volume(24Hr)',
             dataIndex: 'volumeUsd24Hr',
             key: 'volumeUsd24Hr',
-            render: text => <p>$ {Math.round(text)} b</p>,
+            render: text => <p className="right">$ {Math.round(text)} b</p>,
         },
         {
             title: 'Change(24Hr)',
             dataIndex: 'changePercent24Hr',
             key: 'changePercent24Hr',
-            render: text => <p style={{color : text < 0 ? "red" : "rgb(24, 198, 131)"}}>{Math.round((text) * 100) / 100} %</p>,
+            render: text => <p className="right" style={{color : text < 0 ? "red" : "rgb(24, 198, 131)"}}>{Math.round((text) * 100) / 100} %</p>,
         },
     ]
     
