@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/codingfront-coincap.ios/static/css/main.c3a97603.css",
+    "main.js": "/codingfront-coincap.ios/static/js/main.c0c48fb4.js",
+    "static/js/787.28cb0dcd.chunk.js": "/codingfront-coincap.ios/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/codingfront-coincap.ios/index.html",
+    "main.c3a97603.css.map": "/codingfront-coincap.ios/static/css/main.c3a97603.css.map",
+    "main.c0c48fb4.js.map": "/codingfront-coincap.ios/static/js/main.c0c48fb4.js.map",
+    "787.28cb0dcd.chunk.js.map": "/codingfront-coincap.ios/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c3a97603.css",
+    "static/js/main.c0c48fb4.js"
+  ]
+}
